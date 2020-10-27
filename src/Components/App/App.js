@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import SearchBar from '../SearchBar/SearchBar';
-import { Route, Link, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import { AppContext } from './AppContext';
 import Search from '../Search/Search';
 

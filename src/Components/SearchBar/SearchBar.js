@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import './SearchBar.css';
 
-const SearchBar = () => {
-	const [query, setQuery] = useState({
+const SearchBar = ({ setQuery }) => {
+	const initialState = {
 		title: '',
 		artist: '',
-	});
+	};
+	const [formState, setFormState] = useState(initialState);
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(e.target.value);
+		setQuery(formState);
+		setFormState(initialState);
 	};
 	const handleChange = (e) => {
-		setQuery({ ...query, [e.target.id]: e.target.value });
+		setFormState({ ...formState, [e.target.id]: e.target.value });
 	};
 
 	return (
@@ -21,7 +23,7 @@ const SearchBar = () => {
 				id='title'
 				type='text'
 				placeholder='Search by song title'
-				value={query.title}
+				value={formState.title}
 				required
 			/>
 			<input
@@ -29,7 +31,7 @@ const SearchBar = () => {
 				id='artist'
 				type='text'
 				placeholder='Artist (optional)'
-				value={query.artist}
+				value={formState.artist}
 			/>
 			<button type='submit'>Search</button>
 		</form>
