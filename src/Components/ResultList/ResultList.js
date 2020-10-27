@@ -1,4 +1,5 @@
 import React from 'react';
+import Result from '../Result/Result';
 
 const ResultList = ({ results }) => {
 	console.log(results);
@@ -8,7 +9,9 @@ const ResultList = ({ results }) => {
 	return (
 		<>
 			<ul>
-				<li>result</li>
+				{results.map((result) => (
+					<Result result={result} />
+				))}
 			</ul>
 		</>
 	);
