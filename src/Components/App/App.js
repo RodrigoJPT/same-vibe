@@ -5,7 +5,6 @@ import { AppContext } from './AppContext';
 import Search from '../Search/Search';
 
 function App() {
-	console.log('rerendering');
 	const [similarSongs, setSimilarSongs] = useState([]);
 
 	useEffect(() => {

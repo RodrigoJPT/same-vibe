@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './SearchBar.css';
 
-const SearchBar = ({ setQuery }) => {
-	console.log('rerendering');
+const SearchBar = ({ setQuery, search }) => {
 	const initialState = {
 		title: '',
 		artist: '',
@@ -12,6 +11,7 @@ const SearchBar = ({ setQuery }) => {
 		e.preventDefault();
 		setQuery(formState);
 		setFormState(initialState);
+		search();
 	};
 	const handleChange = (e) => {
 		setFormState({ ...formState, [e.target.id]: e.target.value });

@@ -1,7 +1,7 @@
 import React from 'react';
 
-const ResultList = (results) => {
-	console.log('rerendering');
+const ResultList = ({ results }) => {
+	console.log(results);
 	if (!results.length) {
 		return <h1>Enter search term above</h1>;
 	}

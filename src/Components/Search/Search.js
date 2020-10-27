@@ -3,19 +3,18 @@ import SearchBar from '../SearchBar/SearchBar';
 import ResultList from '../ResultList/ResultList';
 
 const Search = () => {
-	console.log('rerendering');
 	const [query, setQuery] = useState({
 		title: '',
 		artist: '',
 	});
 	const [results, setResults] = useState([]);
 
-	const searchApi = () => {
+	async function searchApi() {
 		const url = '/test-search.json';
-		fetch(url)
+		await fetch(url)
 			.then((res) => res.json())
-			.then((resjson) => setResults(resjson));
-	};
+			.then((resjson) => setResults(resjson.results.trackmatches.track));
+	}
 
 	return (
 		<>
