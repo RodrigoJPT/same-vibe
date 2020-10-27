@@ -5,14 +5,17 @@ import { AppContext } from './AppContext';
 import Search from '../Search/Search';
 
 function App() {
+	console.log('rerendering');
 	const [similarSongs, setSimilarSongs] = useState([]);
 
 	useEffect(() => {
-		const url = '/test-data.json';
-		fetch(url)
-			.then((res) => res.json())
-			.then((resJson) => setSimilarSongs(resJson.similartracks));
-	});
+		if (!similarSongs.length) {
+			const url = '/test-data.json';
+			fetch(url)
+				.then((res) => res.json())
+				.then((resJson) => setSimilarSongs(resJson.similartracks));
+		}
+	}, []);
 
 	return (
 		<>

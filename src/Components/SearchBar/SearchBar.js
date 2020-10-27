@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './SearchBar.css';
 
 const SearchBar = ({ setQuery }) => {
+	console.log('rerendering');
 	const initialState = {
 		title: '',
 		artist: '',
