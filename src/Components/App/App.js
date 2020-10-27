@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import SearchBar from '../SearchBar/SearchBar';
 
 function App() {
 	const [similarSongs, setSimilarSongs] = useState([]);
@@ -10,7 +11,11 @@ function App() {
 			.then((resJson) => setSimilarSongs(resJson.similartracks));
 	});
 
-	return <div className='App'>{similarSongs.track.length}</div>;
+	return (
+		<div className='App'>
+			<SearchBar />
+		</div>
+	);
 }
 
 export default App;
