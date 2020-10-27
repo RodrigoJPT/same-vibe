@@ -1,0 +1,32 @@
+.result {
+	margin: 17px 5px;
+	text-decoration: none;
+	color: black;
+	display: block;
+	background-color: transparent;
+	background: transparent;
+	border: none;
+	text-align: left;
+}
+
+.result:focus {
+	outline: none;
+	box-shadow: none;
+	border: none;
+}
+
+.result:hover {
+	background: lightgray;
+}
+
+.result:active {
+	background: gray;
+}
+
+.result h2 {
+	margin: 5px;
+}
+
+.result h3 {
+	margin: 5px;
+}
