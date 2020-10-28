@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import './Result.css';
 import { AppContext } from '../App/AppContext';
 
 const Result = ({ result }) => {
-	const { getSimilarSongs } = useContext(AppContext);
+	const { setUserSong } = useContext(AppContext);
+	const history = useHistory();
 	const handleClick = (e) => {
-		getSimilarSongs(result);
+		setUserSong(result);
+		history.push(`/song/${result.name}`);
 	};
 	return (
 		<button className='result' onClick={handleClick}>

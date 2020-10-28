@@ -3,19 +3,11 @@ import './App.css';
 import { Route, Redirect } from 'react-router-dom';
 import { AppContext } from './AppContext';
 import Search from '../Search/Search';
+import SameVibe from '../SameVibe/SameVibe';
 
 function App() {
 	const [similarSongs, setSimilarSongs] = useState([]);
-	const [userSong, setUserSong] = useState('');
-
-	async function getSimilarSongs(songInfo) {
-		console.log(songInfo);
-		const url = '/test-data.json';
-		setUserSong(songInfo);
-		/* 		await fetch(url)
-			.then((res) => res.json())
-			.then((resJson) => setSimilarSongs(resJson.similartracks)); */
-	}
+	const [userSong, setUserSong] = useState({});
 
 	return (
 		<>
@@ -24,11 +16,23 @@ function App() {
 			</header>
 			<main>
 				<AppContext.Provider
-					value={{ similarSongs, setSimilarSongs, getSimilarSongs }}>
+					value={{
+						similarSongs,
+						setSimilarSongs,
+						userSong,
+						setUserSong,
+					}}>
 					<Route path='/' exact render={() => <Redirect to='/home' />} />
 					<Route path='/home'>
 						<Search />
 					</Route>
+					<Route
+						path='/song/:songTitle'
+						exact
+						render={(routerProps) => {
+							return <SameVibe match={routerProps.match} />;
+						}}
+					/>
 				</AppContext.Provider>
 			</main>
 		</>
