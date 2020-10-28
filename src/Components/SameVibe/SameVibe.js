@@ -1,24 +1,48 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { AppContext } from '../App/AppContext';
 
-const SameVibe = (props) => {
+const SameVibe = ({ match }) => {
 	const { userSong, setUserSong, similarSongs, setSimilarSongs } = useContext(
 		AppContext
 	);
-	console.log(props);
 	async function getSimilarSongs(songInfo) {
-		console.log(songInfo);
-		/* const url = '/test-data.json';
-			await fetch(url)
+		const url = '/test-data.json';
+		fetch(url)
 			.then((res) => res.json())
-			.then((resJson) => setSimilarSongs(resJson.similartracks)); */
+			.then((resjson) => setSimilarSongs(resjson.similartracks.track));
 	}
 
-	if (!userSong.name) {
-		return <h1>No User Selected Song</h1>;
+	useEffect(() => {
+		if (!userSong.name && match.params.artist && match.params.song) {
+			const songInfo = {
+				name: match.params.song,
+				artist: match.params.artist,
+			};
+			setUserSong(songInfo);
+			getSimilarSongs(songInfo);
+		} else {
+			getSimilarSongs(userSong);
+		}
+	}, []);
+
+	if (!similarSongs.length) {
+		return <h3>Loading...</h3>;
 	}
 
-	return <h1>{userSong.name}</h1>;
+	console.log(similarSongs);
+	return (
+		<div className='song-list'>
+			<Link to='/home'>{'< Return'}</Link>
+			<ul>
+				{similarSongs.map((song, index) => (
+					<li key={index}>
+						{song.name},{song.artist.name}
+					</li>
+				))}
+			</ul>
+		</div>
+	);
 };
 
 export default SameVibe;

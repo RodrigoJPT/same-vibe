@@ -27,7 +27,7 @@ function App() {
 						<Search />
 					</Route>
 					<Route
-						path='/:artist/:songTitle'
+						path='/:artist/:song'
 						exact
 						render={(routerProps) => {
 							return <SameVibe match={routerProps.match} />;
