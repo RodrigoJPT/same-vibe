@@ -10,7 +10,7 @@ function App() {
 	const [userSong, setUserSong] = useState({});
 
 	return (
-		<>
+		<div className='App'>
 			<header>
 				<h1>SameVibe</h1>
 			</header>
@@ -35,7 +35,7 @@ function App() {
 					/>
 				</AppContext.Provider>
 			</main>
-		</>
+		</div>
 	);
 }
 
