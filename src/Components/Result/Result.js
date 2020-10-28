@@ -8,7 +8,8 @@ const Result = ({ result }) => {
 	const history = useHistory();
 	const handleClick = (e) => {
 		setUserSong(result);
-		history.push(`/song/${result.name}`);
+		const urlFormattedName = result.name.split(' ').join('+');
+		history.push(`/song/${urlFormattedName}`);
 	};
 	return (
 		<button className='result' onClick={handleClick}>
