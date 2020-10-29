@@ -2,7 +2,7 @@
 	margin: 17px 5px;
 	text-decoration: none;
 	color: white;
-	display: block;
+	display: flex;
 	background-color: transparent;
 	background: transparent;
 	border: none;
@@ -24,11 +24,11 @@
 }
 
 .result h2 {
-	margin: 5px 0;
+	margin: 0;
 }
 
 .result h3 {
-	margin: 5px 0;
+	margin: 0;
 }
 
 .result img {
@@ -38,6 +38,8 @@
 }
 
 .song-info-text {
-	display: inline-block;
-	line-height: -50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 32px 25px;
 }
