@@ -8,6 +8,7 @@ const Search = () => {
 		artist: '',
 	});
 	const [results, setResults] = useState([]);
+	const [searched, setSearched] = useState(false);
 
 	async function searchApi() {
 		const url = '/test-search.json';
@@ -18,8 +19,20 @@ const Search = () => {
 
 	return (
 		<>
-			<SearchBar setQuery={setQuery} search={searchApi} />
-			<ResultList results={results} />
+			<SearchBar
+				setQuery={setQuery}
+				search={searchApi}
+				setSearched={setSearched}
+			/>
+			{!searched ? (
+				<p className='welcome-message'>
+					Welcome to SameVibe, an app that takes a song you love and gives you
+					songs that sound similar based on listening data from last.fm. Search
+					for the song you love below to get started.
+				</p>
+			) : (
+				<ResultList results={results} />
+			)}
 		</>
 	);
 };

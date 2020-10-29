@@ -14,8 +14,12 @@ const Result = ({ result }) => {
 	};
 	return (
 		<button className='result' onClick={handleClick}>
-			<h2>{result.name}</h2>
-			<h3>{result.artist}</h3>
+			<img src='/vinyl-placeholder.png' alt='' />
+			<div className='song-info-text'>
+				<h2>{result.name}</h2>
+				by
+				<h3>{result.artist}</h3>
+			</div>
 		</button>
 	);
 };

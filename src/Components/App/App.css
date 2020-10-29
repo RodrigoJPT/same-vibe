@@ -1,3 +1,9 @@
 .App header h1 {
 	margin: 15px 15px;
+	color: white;
+}
+
+.App header a:focus {
+	text-decoration: none;
+	outline: none;
 }

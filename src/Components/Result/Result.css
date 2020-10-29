@@ -1,7 +1,7 @@
 .result {
 	margin: 17px 5px;
 	text-decoration: none;
-	color: black;
+	color: white;
 	display: block;
 	background-color: transparent;
 	background: transparent;
@@ -24,9 +24,19 @@
 }
 
 .result h2 {
-	margin: 5px;
+	margin: 5px 0;
 }
 
 .result h3 {
-	margin: 5px;
+	margin: 5px 0;
+}
+
+.result img {
+	height: 120px;
+	width: 120px;
+	display: inline-block;
+}
+
+.song-info-text {
+	display: inline-block;
 }

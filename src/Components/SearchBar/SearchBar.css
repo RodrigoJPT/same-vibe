@@ -13,14 +13,13 @@
 	background: transparent;
 	border: 1.6px solid white;
 	padding: 7px;
-	border-radius: 10px;
 }
 
 .search-bar input::placeholder {
-	color: white;
+	color: #d3d3d3;
 }
 .search-bar input:placeholder-shown {
-	width: 110px;
+	width: 80px;
 	color: white;
 }
 

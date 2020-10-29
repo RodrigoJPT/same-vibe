@@ -6,13 +6,13 @@ const ResultList = ({ results }) => {
 		return <h1>Enter search term above</h1>;
 	}
 	return (
-		<>
+		<div className='result-list-container'>
 			<ul>
 				{results.map((result, index) => (
 					<Result result={result} key={index} />
 				))}
 			</ul>
-		</>
+		</div>
 	);
 };
 

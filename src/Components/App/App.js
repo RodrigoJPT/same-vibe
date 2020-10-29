@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Link, Redirect } from 'react-router-dom';
 import { AppContext } from './AppContext';
 import Search from '../Search/Search';
 import SameVibe from '../SameVibe/SameVibe';
@@ -12,7 +12,9 @@ function App() {
 	return (
 		<div className='App'>
 			<header>
-				<h1>SameVibe</h1>
+				<Link to='/home'>
+					<h1>SameVibe</h1>
+				</Link>
 			</header>
 			<main>
 				<AppContext.Provider

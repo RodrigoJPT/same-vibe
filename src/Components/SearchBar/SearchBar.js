@@ -3,7 +3,7 @@ import './SearchBar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-const SearchBar = ({ setQuery, search }) => {
+const SearchBar = ({ setQuery, search, setSearched }) => {
 	const initialState = {
 		title: '',
 		artist: '',
@@ -13,6 +13,7 @@ const SearchBar = ({ setQuery, search }) => {
 		e.preventDefault();
 		setQuery(formState);
 		setFormState(initialState);
+		setSearched(true);
 		search();
 	};
 	const handleChange = (e) => {
@@ -25,7 +26,7 @@ const SearchBar = ({ setQuery, search }) => {
 				onChange={handleChange}
 				id='title'
 				type='text'
-				placeholder='Song name'
+				placeholder='Song'
 				value={formState.title}
 				required
 			/>
@@ -33,7 +34,7 @@ const SearchBar = ({ setQuery, search }) => {
 				onChange={handleChange}
 				id='artist'
 				type='text'
-				placeholder='Artist (optional)'
+				placeholder='Artist'
 				value={formState.artist}
 			/>
 			<button type='submit'>
