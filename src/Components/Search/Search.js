@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import ResultList from '../ResultList/ResultList';
+import './Search.css';
 
 const Search = () => {
 	const [query, setQuery] = useState({
@@ -31,7 +32,7 @@ const Search = () => {
 					for the song you love below to get started.
 				</p>
 			) : (
-				<ResultList results={results} />
+				<ResultList results={results} query={query} />
 			)}
 		</>
 	);

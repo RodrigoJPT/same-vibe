@@ -39,4 +39,5 @@
 
 .song-info-text {
 	display: inline-block;
+	line-height: -50px;
 }

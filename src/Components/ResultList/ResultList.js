@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Result from '../Result/Result';
+import { AppContext } from '../App/AppContext';
 
-const ResultList = ({ results }) => {
+const ResultList = ({ results, query }) => {
+	const { userSong } = useContext(AppContext);
 	if (!results.length) {
-		return <h1>Enter search term above</h1>;
+		return <h3>Loading...</h3>;
 	}
+
 	return (
 		<div className='result-list-container'>
+			<h3>
+				Showing results for {query.title}{' '}
+				{query.artist ? `by ${query.artist}` : null}
+			</h3>
 			<ul>
 				{results.map((result, index) => (
 					<Result result={result} key={index} />
