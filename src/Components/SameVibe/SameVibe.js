@@ -1,6 +1,8 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../App/AppContext';
+import Song from '../Song/Song';
+import './SameVibe.css';
 
 const SameVibe = ({ match }) => {
 	const { userSong, setUserSong, similarSongs, setSimilarSongs } = useContext(
@@ -21,7 +23,6 @@ const SameVibe = ({ match }) => {
 				name: match.params.song,
 				artist: match.params.artist,
 			};
-			console.log(songInfo);
 			setUserSong(songInfo);
 			getSimilarSongs(songInfo);
 		} else {
@@ -40,9 +41,7 @@ const SameVibe = ({ match }) => {
 			<Link to='/home'>{'< Return'}</Link>
 			<ul>
 				{similarSongs.map((song, index) => (
-					<li key={index}>
-						{song.name},{song.artist.name}
-					</li>
+					<Song key={index} song={song} />
 				))}
 			</ul>
 		</div>

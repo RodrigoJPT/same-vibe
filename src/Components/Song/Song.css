@@ -1,4 +1,4 @@
-.result-link {
+.song-container {
 	width: 100vw;
 	border: none;
 	text-decoration: none;
@@ -6,19 +6,19 @@
 	background: transparent;
 }
 
-.result {
+.song {
 	margin: 0;
 	text-align: left;
 	display: flex;
 	border-bottom: 1px solid white;
 }
 
-.result-link:focus {
+.song-container:focus {
 	outline: none;
 	box-shadow: none;
 }
 
-.result-link:hover {
+.song-container:hover {
 	background: rgb(158, 112, 175);
 	background: linear-gradient(
 		90deg,
@@ -27,28 +27,48 @@
 	);
 }
 
-.result-link:active {
+.song-container:active {
 	background: lightgray;
 }
 
-.result h2 {
+.song h2 {
 	margin: 0;
 }
 
-.result h3 {
+.song h3 {
 	margin: 0;
 }
 
-.result img {
+.song img {
 	height: 120px;
 	width: 120px;
 	display: inline-block;
-	margin-left: 5px;
+	padding-left: 5px;
 }
 
-.song-info-text {
+.song-text {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding: 32px 25px;
+}
+
+.song-links {
+	display: inline-block;
+}
+
+.song-links button {
+	display: inline;
+	font-size: 1em;
+	text-align: right;
+	margin: 2px 5px 0 0;
+	color: white;
+	background-color: transparent;
+	background: transparent;
+	border: 1.6px solid white;
+	padding: 7px;
+}
+
+.song-links a {
+	text-decoration: none;
+	color: white;
 }
