@@ -13,12 +13,14 @@ const Result = ({ result }) => {
 		history.push(`/${formattedArtistName}/${formattedSongTitle}`);
 	};
 	return (
-		<button className='result' onClick={handleClick}>
-			<img src='/vinyl-placeholder.png' alt='' />
-			<div className='song-info-text'>
-				<h2>{result.name}</h2>
-				by
-				<h3>{result.artist}</h3>
+		<button className='result-link' onClick={handleClick}>
+			<div className='result'>
+				<img src='/vinyl-placeholder.png' alt='' />
+				<div className='song-info-text'>
+					<h2>{result.name}</h2>
+					by
+					<h3>{result.artist}</h3>
+				</div>
 			</div>
 		</button>
 	);

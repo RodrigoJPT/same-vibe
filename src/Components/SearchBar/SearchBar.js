@@ -14,7 +14,7 @@ const SearchBar = ({ setQuery, search, setSearched }) => {
 		setQuery(formState);
 		setFormState(initialState);
 		setSearched(true);
-		search();
+		search(formState);
 	};
 	const handleChange = (e) => {
 		setFormState({ ...formState, [e.target.id]: e.target.value });

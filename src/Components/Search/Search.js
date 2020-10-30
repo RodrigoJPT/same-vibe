@@ -11,11 +11,19 @@ const Search = () => {
 	const [results, setResults] = useState([]);
 	const [searched, setSearched] = useState(false);
 
-	async function searchApi() {
-		const url = '/test-search.json';
-		await fetch(url)
+	async function searchApi(query) {
+		const formattedTitle = query.title.split(' ').join('+');
+		const formattedArtist = query.artist.split(' ').join('+');
+		const url = `http://ws.audioscrobbler.com/2.0/?method=track.search${
+			formattedArtist.length ? `&artist=${formattedArtist}` : ''
+		}&track=${formattedTitle}&api_key=${
+			process.env.REACT_APP_LASTFM_KEY
+		}&format=json`;
+		fetch(url)
 			.then((res) => res.json())
-			.then((resjson) => setResults(resjson.results.trackmatches.track));
+			.then((resjson) => {
+				setResults(resjson.results.trackmatches.track);
+			});
 	}
 
 	return (
@@ -29,7 +37,7 @@ const Search = () => {
 				<p className='welcome-message'>
 					Welcome to SameVibe, an app that takes a song you love and gives you
 					songs that sound similar based on listening data from last.fm. Search
-					for the song you love below to get started.
+					for the song you love using the search bars above to get started.
 				</p>
 			) : (
 				<ResultList results={results} query={query} />

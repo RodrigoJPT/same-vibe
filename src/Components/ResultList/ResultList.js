@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Result from '../Result/Result';
 import { AppContext } from '../App/AppContext';
+import './ResultList.css';
 
 const ResultList = ({ results, query }) => {
 	const { userSong } = useContext(AppContext);
@@ -10,10 +11,10 @@ const ResultList = ({ results, query }) => {
 
 	return (
 		<div className='result-list-container'>
-			<h3>
-				Showing results for {query.title}{' '}
-				{query.artist ? `by ${query.artist}` : null}
-			</h3>
+			<p className='result-list-header'>
+				Showing results for "{query.title}
+				{query.artist ? ` by ${query.artist}` : null}":
+			</p>
 			<ul>
 				{results.map((result, index) => (
 					<Result result={result} key={index} />
