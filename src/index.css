@@ -26,3 +26,14 @@ code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
 		monospace;
 }
+
+.home-link:focus {
+	text-decoration: none;
+}
+.home-link:visited {
+	text-decoration: none;
+}
+
+.home-link {
+	color: transparent;
+}

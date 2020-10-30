@@ -12,7 +12,7 @@ function App() {
 	return (
 		<div className='App'>
 			<header>
-				<Link to='/home'>
+				<Link to='/home' className='home-link'>
 					<h1>SameVibe</h1>
 				</Link>
 			</header>

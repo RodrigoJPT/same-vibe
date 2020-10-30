@@ -38,7 +38,13 @@ const SameVibe = ({ match }) => {
 	console.log(similarSongs);
 	return (
 		<div className='song-list'>
-			<Link to='/home'>{'< Return'}</Link>
+			<p>
+				Showing songs with the SameVibe as <b>{userSong.name}</b> by{' '}
+				<b>{userSong.artist}</b>
+				<Link to='/home' className='return-link'>
+					{'Search Again?'}
+				</Link>
+			</p>
 			<ul>
 				{similarSongs.map((song, index) => (
 					<Song key={index} song={song} />

@@ -11,6 +11,7 @@
 	text-align: left;
 	display: flex;
 	border-bottom: 1px solid white;
+	padding: 5px 0;
 }
 
 .result-link:focus {
@@ -42,6 +43,7 @@
 .result img {
 	height: 120px;
 	width: 120px;
+	min-width: 120px;
 	display: inline-block;
 	margin-left: 5px;
 }
