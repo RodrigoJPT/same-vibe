@@ -14,7 +14,7 @@ const Search = () => {
 	async function searchApi(query) {
 		const formattedTitle = query.title.split(' ').join('+');
 		const formattedArtist = query.artist.split(' ').join('+');
-		const url = `http://ws.audioscrobbler.com/2.0/?method=track.search${
+		const url = `https://ws.audioscrobbler.com/2.0/?method=track.search${
 			formattedArtist.length ? `&artist=${formattedArtist}` : ''
 		}&track=${formattedTitle}&api_key=${
 			process.env.REACT_APP_LASTFM_KEY

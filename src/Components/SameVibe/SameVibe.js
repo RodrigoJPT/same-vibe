@@ -9,7 +9,7 @@ const SameVibe = ({ match }) => {
 		AppContext
 	);
 	async function getSimilarSongs(songInfo) {
-		const url = `http://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist=${songInfo.artist}&track=${songInfo.name}&api_key=${process.env.REACT_APP_LASTFM_KEY}&format=json`;
+		const url = `https://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist=${songInfo.artist}&track=${songInfo.name}&api_key=${process.env.REACT_APP_LASTFM_KEY}&format=json`;
 		fetch(url)
 			.then((res) => res.json())
 			.then((resjson) => {
