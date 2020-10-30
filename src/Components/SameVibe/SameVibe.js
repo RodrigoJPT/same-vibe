@@ -7,10 +7,12 @@ const SameVibe = ({ match }) => {
 		AppContext
 	);
 	async function getSimilarSongs(songInfo) {
-		const url = '/test-data.json';
+		const url = `http://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist=${songInfo.artist}&track=${songInfo.name}&api_key=${process.env.REACT_APP_LASTFM_KEY}&format=json`;
 		fetch(url)
 			.then((res) => res.json())
-			.then((resjson) => setSimilarSongs(resjson.similartracks.track));
+			.then((resjson) => {
+				setSimilarSongs(resjson.similartracks.track);
+			});
 	}
 
 	useEffect(() => {
@@ -19,9 +21,11 @@ const SameVibe = ({ match }) => {
 				name: match.params.song,
 				artist: match.params.artist,
 			};
+			console.log(songInfo);
 			setUserSong(songInfo);
 			getSimilarSongs(songInfo);
 		} else {
+			console.log(userSong);
 			getSimilarSongs(userSong);
 		}
 	}, []);
