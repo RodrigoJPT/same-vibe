@@ -1,0 +1,56 @@
+.result-link {
+	width: 100vw;
+	border: none;
+	text-decoration: none;
+	color: white;
+	background: transparent;
+}
+
+.result {
+	margin: 0;
+	text-align: left;
+	display: flex;
+	border-bottom: 1px solid white;
+	padding: 5px 0;
+}
+
+.result-link:focus {
+	outline: none;
+	box-shadow: none;
+}
+
+.result-link:hover {
+	background: rgb(158, 112, 175);
+	background: linear-gradient(
+		90deg,
+		rgba(158, 112, 175, 1) 0%,
+		rgba(176, 163, 181, 0.5737265415549597) 82%
+	);
+}
+
+.result-link:active {
+	background: lightgray;
+}
+
+.result h2 {
+	margin: 0;
+}
+
+.result h3 {
+	margin: 0;
+}
+
+.result img {
+	height: 120px;
+	width: 120px;
+	min-width: 120px;
+	display: inline-block;
+	margin-left: 5px;
+}
+
+.song-info-text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 32px 25px;
+}

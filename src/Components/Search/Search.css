@@ -1,0 +1,5 @@
+.welcome-message {
+	display: flex;
+	margin: 50px auto;
+	width: 70vw;
+}
