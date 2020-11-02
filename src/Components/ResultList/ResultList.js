@@ -3,10 +3,25 @@ import Result from '../Result/Result';
 import { AppContext } from '../App/AppContext';
 import './ResultList.css';
 
-const ResultList = ({ results, query }) => {
+const ResultList = ({ results, query, badFetch }) => {
 	const { userSong } = useContext(AppContext);
+
+	if (badFetch) {
+		return (
+			<div className='result-list-container'>
+				<p className='result-list-header'>
+					No results for "{query.title}"
+					{query.artist ? ` by ${query.artist}` : null}:
+				</p>
+			</div>
+		);
+	}
 	if (!results.length) {
-		return <h3>Loading...</h3>;
+		return (
+			<div className='result-list-container'>
+				<p className='result-list-header'>Searching...</p>
+			</div>
+		);
 	}
 
 	return (

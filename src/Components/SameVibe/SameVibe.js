@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../App/AppContext';
 import Song from '../Song/Song';
@@ -8,13 +8,21 @@ const SameVibe = ({ match }) => {
 	const { userSong, setUserSong, similarSongs, setSimilarSongs } = useContext(
 		AppContext
 	);
+	const [badFetch, setBadFetch] = useState(false);
+
 	async function getSimilarSongs(songInfo) {
 		const url = `https://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist=${songInfo.artist}&track=${songInfo.name}&api_key=${process.env.REACT_APP_LASTFM_KEY}&format=json`;
 		fetch(url)
 			.then((res) => res.json())
 			.then((resjson) => {
-				setSimilarSongs(resjson.similartracks.track);
-			});
+				if (!resjson.similartracks.track.length) {
+					setBadFetch(true);
+				} else {
+					setBadFetch(false);
+					setSimilarSongs(resjson.similartracks.track);
+				}
+			})
+			.catch((err) => setBadFetch(true));
 	}
 
 	useEffect(() => {
@@ -26,16 +34,31 @@ const SameVibe = ({ match }) => {
 			setUserSong(songInfo);
 			getSimilarSongs(songInfo);
 		} else {
-			console.log(userSong);
 			getSimilarSongs(userSong);
 		}
 	}, []);
 
-	if (!similarSongs.length) {
-		return <h3>Loading...</h3>;
+	if (badFetch) {
+		return (
+			<div className='song-list'>
+				<p>
+					Apologies, we could not find the songs.
+					<Link to='/home' className='return-link'>
+						{'Search Again?'}
+					</Link>
+				</p>
+			</div>
+		);
 	}
 
-	console.log(similarSongs);
+	if (!similarSongs.length) {
+		return (
+			<div className='song-list'>
+				<p>Loading...</p>
+			</div>
+		);
+	}
+
 	return (
 		<div className='song-list'>
 			<p>

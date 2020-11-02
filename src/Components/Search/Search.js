@@ -10,6 +10,7 @@ const Search = () => {
 	});
 	const [results, setResults] = useState([]);
 	const [searched, setSearched] = useState(false);
+	const [badFetch, setBadFetch] = useState(false);
 
 	async function searchApi(query) {
 		const formattedTitle = query.title.split(' ').join('+');
@@ -22,7 +23,12 @@ const Search = () => {
 		fetch(url)
 			.then((res) => res.json())
 			.then((resjson) => {
-				setResults(resjson.results.trackmatches.track);
+				if (Number(resjson.results['opensearch:totalResults']) === 0) {
+					setBadFetch(true);
+				} else {
+					setBadFetch(false);
+					setResults(resjson.results.trackmatches.track);
+				}
 			});
 	}
 
@@ -40,7 +46,7 @@ const Search = () => {
 					for the song you love using the search bars above to get started.
 				</p>
 			) : (
-				<ResultList results={results} query={query} />
+				<ResultList results={results} query={query} badFetch={badFetch} />
 			)}
 		</>
 	);
