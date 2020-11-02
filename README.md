@@ -4,6 +4,8 @@
 
 A school project app for finding music similar to a given song using listening data from the [last.fm API](https://www.last.fm/api)
 
+Check it out [here!](https://same-vibe.herokuapp.com/home)
+
 ## Technologies Used:
 
 - [React](https://reactjs.org/docs/getting-started.html)
