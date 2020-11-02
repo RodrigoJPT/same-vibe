@@ -1,6 +1,10 @@
 .App header h1 {
-	margin: 15px 15px;
+	margin: 10px;
 	color: white;
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	position: relative;
 }
 
 .App header a:focus {

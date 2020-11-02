@@ -1,5 +1,5 @@
 .song-container {
-	width: 100vw;
+	width: 100%;
 	border: none;
 	text-decoration: none;
 	color: white;
@@ -11,7 +11,7 @@
 	text-align: left;
 	display: flex;
 	border-bottom: 1px solid white;
-	padding: 5px 0;
+	padding: 15px 0;
 }
 
 .song-container:focus {
@@ -19,17 +19,8 @@
 	box-shadow: none;
 }
 
-.song-container:hover {
-	background: rgb(158, 112, 175);
-	background: linear-gradient(
-		90deg,
-		rgba(158, 112, 175, 1) 0%,
-		rgba(176, 163, 181, 0.5737265415549597) 82%
-	);
-}
-
 .song-container:active {
-	background: lightgray;
+	background: rgb(158, 112, 175);
 }
 
 .song h2 {
@@ -52,7 +43,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding-left: 25px;
+	padding-left: 15px;
 }
 
 .song-links {
@@ -74,4 +65,18 @@
 .song-links a {
 	text-decoration: none;
 	color: white;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.song-container:hover {
+		background: rgb(158, 112, 175);
+		background: linear-gradient(
+			90deg,
+			rgba(158, 112, 175, 1) 0%,
+			rgba(176, 163, 181, 0.5737265415549597) 82%
+		);
+	}
+	.song-container:active {
+		background: lightgray;
+	}
 }
