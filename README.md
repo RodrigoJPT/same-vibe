@@ -1,3 +1,5 @@
+![App Screenshot](https://github.com/RodrigoJPT/same-vibe/blob/dev/public/Screenshot.png?raw=true)
+
 # SameVibe
 
 A school project app for finding music similar to a given song using listening data from the [last.fm API](https://www.last.fm/api)
